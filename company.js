@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const listCBL = document.getElementById("selectCBL");
       const labelCBL = document.getElementById("labelCBL");
       const sortPercentage = document.getElementById("sortPercentage");
+      const sortName = document.getElementById("sortName");
       const news = document.getElementById("newsList");
       listOFCompanies.style.display = "none";
       totalCompaies.style.display = "none";
@@ -126,8 +127,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (a.value > b.value) return 1;
         if (a.value < b.value) return -1;
       }
+
+      function compareName(a, b) {
+        return a.name - b.name;
+      }
       createOptions();
+
       sortPercentage.addEventListener("click", () => {
+        sortPercentage.childNodes[1].classList.add("fas");
+        if (sortName.childNodes[1].className !== "") {
+          sortName.childNodes[1].className = "";
+        }
         if (
           sortPercentage.childNodes[1].className === "fas fa-sort-amount-down"
         ) {
@@ -137,6 +147,22 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           sortPercentage.childNodes[1].classList.remove("fa-sort-amount-up");
           sortPercentage.childNodes[1].classList.add("fa-sort-amount-down");
+          createOptions();
+        }
+      });
+
+      sortName.addEventListener("click", () => {
+        sortName.childNodes[1].classList.add("fas");
+        if (sortPercentage.childNodes[1].className !== "") {
+          sortPercentage.childNodes[1].className = "";
+        }
+        if (sortName.childNodes[1].className === "fas fa-sort-alpha-up") {
+          sortName.childNodes[1].classList.remove("fa-sort-alpha-up");
+          sortName.childNodes[1].classList.add("fa-sort-alpha-down");
+          createOptions();
+        } else {
+          sortName.childNodes[1].classList.remove("fa-sort-alpha-down");
+          sortName.childNodes[1].classList.add("fa-sort-alpha-up");
           createOptions();
         }
       });
@@ -153,19 +179,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
             arrPartners.sort(sortFromHightoLow);
 
-            //function changeSortPercentage() {
-            //document.getElementById("sortPercentage").click();
-            if (
-              sortPercentage.childNodes[1].className ===
-              "fas fa-sort-amount-down"
-            ) {
-              arrPartners.sort(sortFromLowtoHigh);
-              createCompanyPartners();
+            if (sortPercentage.childNodes[1].className !== "") {
+              if (
+                sortPercentage.childNodes[1].className ===
+                "fas fa-sort-amount-down"
+              ) {
+                arrPartners.sort();
+                createCompanyPartners(sortFromHightoLow);
+              } else {
+                arrPartners.sort(sortFromLowtoHigh);
+                createCompanyPartners();
+              }
             } else {
-              arrPartners.sort(sortFromHightoLow);
-              createCompanyPartners();
+              console.log("adsdad");
+              if (
+                sortName.childNodes[1].className === "fas fa-sort-alpha-down"
+              ) {
+                arrPartners.sort(compareName);
+                arrPartners.reverse();
+                createCompanyPartners();
+              } else {
+                arrPartners.sort(compareName);
+                createCompanyPartners();
+              }
             }
-            // }
 
             function createCompanyPartners() {
               listPartners.innerHTML = null;
@@ -220,7 +257,10 @@ document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("piechart")
         );
 
-        chart.draw(data);
+        const options = {
+          chartArea: { width: "50%", height: "75%" }
+        };
+        chart.draw(data, options);
         google.visualization.events.addListener(chart, "select", function(e) {
           console.log(getSelection().anchorNode.textContent);
           if (

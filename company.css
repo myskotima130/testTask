@@ -26,6 +26,7 @@ section {
   width: 100%;
   border: solid 1px #efefef;
   border-radius: 5px;
+  margin-bottom: 4%;
 }
 
 #headerCP {
@@ -75,7 +76,6 @@ h5 {
   justify-content: center;
   flex-direction: column;
   width: 50%;
-  height: 80%;
   border-radius: 50%;
   border: solid 1px #000;
   background: none;
@@ -145,6 +145,22 @@ h5 {
   padding-top: 5%;
 }
 
+#piechart {
+  width: 140px;
+  height: 140px;
+}
+
+@media screen and (max-width: 800px) {
+  .newsImg {
+    width: 70px;
+    height: 70px;
+  }
+  #piechart {
+    width: 70px;
+    height: 70px;
+  }
+}
+
 .newsDesc {
   padding-left: 15px;
   float: left;
@@ -157,6 +173,7 @@ h5 {
 }
 
 #newsList {
+  display: flex;
   position: relative;
   height: 100%;
   padding: 0px;
