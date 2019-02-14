@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   )
     .then(res => res.json())
     .then(json => {
+      // Get data of companies
       listCompanies = [...json.list];
       let result = [];
       for (let i = 0; i < listCompanies.length; i++) {
@@ -28,9 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
       )
         .then(res => res.json())
         .then(json => {
+          // Get data about news
           const listNews = [...json.list];
           console.log(listNews);
           let newsList = document.getElementById("newsList");
+          // Create list of news
           for (let i = 0; i < listNews.length; i++) {
             let div = document.createElement("div");
             div.className = "newsDiv";
@@ -267,7 +270,8 @@ document.addEventListener("DOMContentLoaded", () => {
             getSelection().anchorNode.textContent.length > 3 &&
             getSelection().anchorNode.textContent.length < 30
           ) {
-            const selectedCountry = getSelection().anchorNode.textContent; // only legenda elem has prop textContent with location
+            // Only legenda elem has prop textContent with location from API
+            const selectedCountry = getSelection().anchorNode.textContent;
             for (let i = 0; i < listCompanies.length; i++) {
               if (listCompanies[i].location.name === selectedCountry) {
                 componentsByLocation.style.display = "none";
