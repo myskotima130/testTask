@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="company.css" />
+    <link rel="stylesheet" href="loader.css" />
+    <title>Company</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <div id="totalCompaies">
+              <h3>Total Compaies</h3>
+              <div class="floatingCirclesG">
+                <!-- Loading animation-->
+                <div class="f_circleG" id="frotateG_01"></div>
+                <div class="f_circleG" id="frotateG_02"></div>
+                <div class="f_circleG" id="frotateG_03"></div>
+                <div class="f_circleG" id="frotateG_04"></div>
+                <div class="f_circleG" id="frotateG_05"></div>
+                <div class="f_circleG" id="frotateG_06"></div>
+                <div class="f_circleG" id="frotateG_07"></div>
+                <div class="f_circleG" id="frotateG_08"></div>
+              </div>
+              <div class="display" id="circle"></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div id="listOfCompanies">
+              <h3>List of Companies</h3>
+              <div class="floatingCirclesG">
+                <!-- Loading animation-->
+                <div class="f_circleG" id="frotateG_01"></div>
+                <div class="f_circleG" id="frotateG_02"></div>
+                <div class="f_circleG" id="frotateG_03"></div>
+                <div class="f_circleG" id="frotateG_04"></div>
+                <div class="f_circleG" id="frotateG_05"></div>
+                <div class="f_circleG" id="frotateG_06"></div>
+                <div class="f_circleG" id="frotateG_07"></div>
+                <div class="f_circleG" id="frotateG_08"></div>
+              </div>
+              <select id="list" multiple size="5"> </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div id="companyPartners">
+              <div id="headerCP">
+                <h3>Company partners</h3>
+                <div id="sort">
+                  <h4>Sort by:</h4>
+                  <h5>Name</h5>
+                  <h5 id="sortPercentage">
+                    Percentage <i class="fas fa-sort-amount-down"></i>
+                  </h5>
+                </div>
+              </div>
+              <div id="listPartners"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div id="companiesByLocation">
+              <h3 id="labelCBL">
+                Companies by Location
+              </h3>
+              <div class="floatingCirclesG">
+                <!-- Loading animation-->
+                <div class="f_circleG" id="frotateG_01"></div>
+                <div class="f_circleG" id="frotateG_02"></div>
+                <div class="f_circleG" id="frotateG_03"></div>
+                <div class="f_circleG" id="frotateG_04"></div>
+                <div class="f_circleG" id="frotateG_05"></div>
+                <div class="f_circleG" id="frotateG_06"></div>
+                <div class="f_circleG" id="frotateG_07"></div>
+                <div class="f_circleG" id="frotateG_08"></div>
+              </div>
+              <div id="piechart"></div>
+              <select id="selectCBL" multiple size="5"></select>
+            </div>
+          </div>
+          <div class="col-6">
+            <div id="News">
+              <h3>News</h3>
+              <div class="floatingCirclesG">
+                <!-- Loading animation-->
+                <div class="f_circleG" id="frotateG_01"></div>
+                <div class="f_circleG" id="frotateG_02"></div>
+                <div class="f_circleG" id="frotateG_03"></div>
+                <div class="f_circleG" id="frotateG_04"></div>
+                <div class="f_circleG" id="frotateG_05"></div>
+                <div class="f_circleG" id="frotateG_06"></div>
+                <div class="f_circleG" id="frotateG_07"></div>
+                <div class="f_circleG" id="frotateG_08"></div>
+              </div>
+
+              <ul id="newsList">
+                <i id="previous" class=" controls far fa-caret-square-left"></i>
+                <i id="next" class=" controls far fa-caret-square-right"></i>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script src="company.js"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Tesk task</title>
+  </head>
+  <body>
+    <form id="form">
+      <h2>Sign Up</h2>
+      <div class="content">
+        <i class="fas fa-user"></i
+        ><input
+          type="text"
+          name="name"
+          placeholder="Имя"
+          pattern="[A-Za-z]{1,32}|[А-Яа-яЁё]{1,32}"
+          required
+        />
+      </div>
+      <div class="content">
+        <i class="fas fa-user"></i
+        ><input
+          type="text"
+          name="secondname"
+          placeholder="Фамилия"
+          pattern="[A-Za-z]{1,32}|[А-Яа-яЁё]{1,32}"
+          required
+        />
+      </div>
+      <div class="content">
+        <i class="far fa-envelope"></i
+        ><input
+          type="email"
+          name="email"
+          placeholder="Email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$"
+          required
+        />
+      </div>
+      <div class="content">
+        <select name="gender">
+          <option value="male">Мужской</option>
+          <option value="female">Женский</option>
+        </select>
+      </div>
+      <div class="content">
+        <i class="fas fa-star-of-life"></i
+        ><input type="password" name="pass" placeholder="Пароль" required />
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="agreement" /><label for="agreement" required
+          >Conditions of Agreement</label
+        >
+      </div>
+      <button id="button" type="submit">Send</button>
+    </form>
+    <script src="index.js"></script>
+  </body>
+</html>
