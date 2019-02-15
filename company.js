@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           result[a] = 1;
         }
-        Array.from(result);
       }
       fetch(
         "http://codeit.pro/codeitCandidates/serverFrontendTest/news/getList",
@@ -33,11 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
           const listNews = [...json.list];
           console.log(listNews);
           let newsList = document.getElementById("newsList");
+
           // Create list of news
           for (let i = 0; i < listNews.length; i++) {
             let div = document.createElement("div");
             div.className = "newsDiv";
             let div2 = document.createElement("div2");
+            div2.className = "newsDiv2";
             let slide = document.createElement("slide");
             let img = document.createElement("img");
             let author = document.createElement("p");
@@ -45,14 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
             let d = new Date(listNews[i].date * 1000);
             let description = document.createElement("p");
             let link = document.createElement("a");
+            img.alt = "News img";
             link.href = "https://" + listNews[i].link;
             link.textContent = listNews[i].link;
             slide.className = "slide";
             description.className = "newsDesc";
-            if (listNews[i].description.length < 200) {
+            if (listNews[i].description.length < 190) {
               description.textContent = listNews[i].description;
             } else {
-              let desc = listNews[i].description.slice(0, 200);
+              let desc = listNews[i].description.slice(0, 160);
               description.textContent = desc + "...";
             }
             date.innerHTML = `${d.getDate()}.${d.getMonth()}.${d.getFullYear()}`;
@@ -60,10 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
             img.src = listNews[i].img;
             img.className = "newsImg";
 
+            // Display news
             div2.appendChild(link);
             div2.appendChild(description);
             div.appendChild(img);
-            //div.appendChild
             div.appendChild(author);
             div.appendChild(date);
             slide.appendChild(div);
@@ -121,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
       componentsByLocation.style.display = "none";
       news.style.display = "none";
 
+      // Sort for company partners
       function sortFromHightoLow(a, b) {
         if (a.value < b.value) return 1;
         if (a.value > b.value) return -1;
@@ -193,18 +196,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 arrPartners.sort(sortFromLowtoHigh);
                 createCompanyPartners();
               }
+            } else if (
+              sortName.childNodes[1].className === "fas fa-sort-alpha-down"
+            ) {
+              arrPartners.sort(compareName);
+              arrPartners.reverse();
+              createCompanyPartners();
             } else {
-              console.log("adsdad");
-              if (
-                sortName.childNodes[1].className === "fas fa-sort-alpha-down"
-              ) {
-                arrPartners.sort(compareName);
-                arrPartners.reverse();
-                createCompanyPartners();
-              } else {
-                arrPartners.sort(compareName);
-                createCompanyPartners();
-              }
+              arrPartners.sort(compareName);
+              createCompanyPartners();
             }
 
             function createCompanyPartners() {
@@ -246,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
         totalCompaies.innerText = listCompanies.length;
       }, 1500);
 
+      // Create block Companies by location
       let arr = [];
       google.charts.load("current", { packages: ["corechart"] });
       google.charts.setOnLoadCallback(drawChart);

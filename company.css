@@ -75,12 +75,14 @@ h5 {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
+  height: 0;
+  padding: 20% 0;
   border-radius: 50%;
   border: solid 1px #000;
   background: none;
   text-align: center;
-  line-height: 5em;
+  line-height: 0;
   font-size: 40px;
 }
 
@@ -145,17 +147,8 @@ h5 {
   padding-top: 5%;
 }
 
-#piechart {
-  width: 140px;
-  height: 140px;
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .newsImg {
-    width: 70px;
-    height: 70px;
-  }
-  #piechart {
     width: 70px;
     height: 70px;
   }
@@ -170,6 +163,11 @@ h5 {
   width: 150px;
   padding: 0;
   margin: 0;
+}
+
+.newsDiv2 {
+  height: 150px;
+  overflow: hidden;
 }
 
 #newsList {
@@ -187,10 +185,8 @@ h5 {
   position: absolute;
   left: 0px;
   top: 0px;
-
   opacity: 0;
   z-index: 1;
-
   -webkit-transition: opacity 1s;
   -moz-transition: opacity 1s;
   -o-transition: opacity 1s;

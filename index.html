@@ -23,6 +23,7 @@
           name="name"
           placeholder="Имя"
           pattern="[A-Za-z]{1,32}|[А-Яа-яЁё]{1,32}"
+          title="Only letters"
           required
         />
       </div>
@@ -33,6 +34,7 @@
           name="secondname"
           placeholder="Фамилия"
           pattern="[A-Za-z]{1,32}|[А-Яа-яЁё]{1,32}"
+          title="Only letters"
           required
         />
       </div>
@@ -54,7 +56,14 @@
       </div>
       <div class="content">
         <i class="fas fa-star-of-life"></i
-        ><input type="password" name="pass" placeholder="Пароль" required />
+        ><input
+          type="password"
+          name="pass"
+          placeholder="Пароль"
+          pattern="[0-9a-zA-Z!@#$%^&*А-Яа-яЁё]{6,}"
+          title="Password must be at least 6 characters long"
+          required
+        />
       </div>
       <div class="checkbox">
         <input type="checkbox" id="agreement" required /><label for="agreement"
